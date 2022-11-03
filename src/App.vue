@@ -1,9 +1,4 @@
-<script setup>
-import Date from "./components/Date.vue";
-import Weather from "./components/Weather.vue";
-import Calculator from "./components/Calculator.vue";
-import Register from "./components/Register.vue";
-</script>
+<script setup></script>
 
 <template>
   <div class="app-container">
@@ -12,9 +7,19 @@ import Register from "./components/Register.vue";
 </template>
 
 <style scoped>
-.app-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  color: purple;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #000000aa;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
 }
 </style>

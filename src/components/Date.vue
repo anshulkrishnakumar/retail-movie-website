@@ -20,15 +20,11 @@ setInterval(() => {
 
 <style scoped>
 .date-container .date {
-  color: white;
   font-size: 2rem;
   font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .date-container .time {
-  color: white;
   font-size: 1.5rem;
   font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 </style>
