@@ -12,7 +12,7 @@
 ::after {
   padding: 0;
   margin: 0;
-  color: purple;
+  color: white;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #000000aa;
