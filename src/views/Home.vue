@@ -1,32 +1,11 @@
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-const username = ref("");
-const password = ref("");
-const error = ref(false);
-
-const login = () => {
-  if (username.value === "Jimmy" && password.value === "section33") {
-    router.push("./account");
-  } else {
-    error.value = true;
-  }
-};
+import Register from "../components/Register.vue";
 </script>
 
 <template>
   <div class="home-container">
     <h1>Home</h1>
-    <form @submit.prevent="login()">
-      <input type="text" placeholder="Username" v-model="username" />
-      <input type="password" placeholder="Password" v-model="password" />
-      <input type="submit" value="Login" />
-    </form>
-    <div v-if="error">
-      <p>Incorrect Username/Password!</p>
-    </div>
+    <Register />
   </div>
 </template>
 
