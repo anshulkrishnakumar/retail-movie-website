@@ -1,15 +1,15 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, connectAuthEmulator } from "firebase/auth";
-import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
-import { getStorage, connectStorageEmulator } from "firebase/storage";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC5YJsBXjhiQbbi66XMJSC_eX2uHIZ5eK8",
-  authDomain: "ics4u-3c5b8.firebaseapp.com",
-  projectId: "ics4u-3c5b8",
-  storageBucket: "ics4u-3c5b8.appspot.com",
-  messagingSenderId: "1022875677940",
-  appId: "1:1022875677940:web:7cacbf908e457f37b01aa1"
+  apiKey: "AIzaSyDihDvHKZK0V7lY5x66Cufcg4uO1QJKwhk",
+  authDomain: "ics4u-ccee9.firebaseapp.com",
+  projectId: "ics4u-ccee9",
+  storageBucket: "ics4u-ccee9.appspot.com",
+  messagingSenderId: "472077703011",
+  appId: "1:472077703011:web:7ddb77a50ae821831d6556"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -17,9 +17,5 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const firestore = getFirestore();
 const storage = getStorage();
-
-connectAuthEmulator(auth, "http://localhost:9099");
-connectFirestoreEmulator(firestore, 'localhost', 8080);
-connectStorageEmulator(storage, "localhost", 9199);
 
 export { auth, firestore, storage }
