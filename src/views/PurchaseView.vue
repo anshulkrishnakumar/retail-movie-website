@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from 'vue';
-import SiteModal from '../components/SiteModal.vue';
-import { useStore } from "../store/index.js"
+import { ref } from "vue";
+import SiteModal from "../components/SiteModal.vue";
+import { useStore } from "../store/index.js";
 
 const store = useStore();
 const genre = ref(28);
@@ -19,7 +19,9 @@ const closeModal = () => {
 
 const getGenres = async () => {
   await store.getMovies(genre.value);
-}
+};
+
+// await store.populateFirestore();
 </script>
 
 <template>
@@ -34,8 +36,12 @@ const getGenres = async () => {
     <option value="80">Fantasy</option>
   </select>
   <div class="purchase-container">
-    <img v-for="movie in store.movies" :id="movie.id" @click="openModal(movie.id)"
-      :src="`https://image.tmdb.org/t/p/w500${movie.poster}`" />
+    <img
+      v-for="movie in store.movies"
+      :id="movie.id"
+      @click="openModal(movie.id)"
+      :src="`https://image.tmdb.org/t/p/w500${movie.poster}`"
+    />
     <SiteModal v-if="showModal" @toggleModal="closeModal()" :id="selectedId" />
   </div>
 </template>
