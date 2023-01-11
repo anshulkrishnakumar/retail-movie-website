@@ -1,5 +1,5 @@
 import { firestore } from "../firebase/index";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import { defineStore } from 'pinia'
 import axios from 'axios';
 
@@ -19,6 +19,7 @@ export const useStore = defineStore('store', {
           params: {
             api_key: "Your Key",
             with_genres: key,
+            include_adult: false,
           }
         })).data.results;
         data = data.map((movie) => {
@@ -30,24 +31,14 @@ export const useStore = defineStore('store', {
         await setDoc(doc(firestore, "Genre", value), { data });
       });
     },
-    async getMovies(id) {
-      let data = (await axios.get("https://api.themoviedb.org/3/discover/movie", {
-        params: {
-          api_key: "Your Key",
-          with_genres: id,
-        }
-      })).data.results;
-
-      this.movies = data.map((movie) => {
-        return {
-          id: movie.id,
-          poster: movie.poster_path,
-        }
-      });
+    async getMovies(genre) {
+      this.movies = (await getDoc(doc(firestore, "Genre", genre))).data().data;
     },
     addToCart(id, data) {
-      // this.cart.set(id, data);
-      // console.log(this.cart);
+      this.cart.set(id, data);
+    },
+    removeFromCart(id) {
+      this.cart.delete(id);
     }
   }
 });
