@@ -28,14 +28,16 @@ const getGenres = async () => {
   await store.getMovies(genre.value);
 };
 
-const search = async (page) => {
+const search = async (direction) => {
+  page.value += direction;
+
   let data = (
     await axios.get("https://api.themoviedb.org/3/search/movie", {
       params: {
         api_key: "Your Key",
         query: criteria.value,
         include_adult: false,
-        page,
+        page: page.value,
       },
     })
   ).data;
@@ -55,7 +57,7 @@ const search = async (page) => {
 </script>
 
 <template>
-  <input type="search" v-model="criteria" @keydown.enter="search(1)" />
+  <input type="search" v-model="criteria" @keydown.enter="search(0)" />
   <br />
   <RouterLink to="/cart" custom v-slot="{ navigate }">
     <button @click="navigate" role="link">Cart</button>
@@ -69,8 +71,11 @@ const search = async (page) => {
     <option value="Fantasy">Fantasy</option>
   </select>
   <template v-if="searchResults.length">
-    <button @click="">Prev</button>
-    <button @click="">Next</button>
+    <div class="navigation">
+      <button v-show="page > 1" @click="search(-1)">Prev</button>
+      <h1>{{ `Page ${page} of ${totalPages}` }}</h1>
+      <button v-show="page < totalPages" @click="search(1)">Next</button>
+    </div>
   </template>
   <div class="purchase-container">
     <template v-if="searchResults.length">
@@ -103,5 +108,10 @@ const search = async (page) => {
 img {
   width: 200px;
   aspect-ratio: 2 / 3;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
