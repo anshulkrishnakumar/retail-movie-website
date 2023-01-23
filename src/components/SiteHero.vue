@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+
 const appeal = ref("");
 let i = 0;
 let goal = "Where Imagination Meets Reality";

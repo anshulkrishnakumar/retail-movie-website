@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: "rmw-firebase-150c9.appspot.com",
   messagingSenderId: "896199981659",
   appId: "1:896199981659:web:fdbae2a3ea848a440f9d7e",
-  measurementId: "G-REGJC0H7X9"
+  measurementId: "G-REGJC0H7X9",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -17,4 +17,4 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const firestore = getFirestore();
 
-export { auth, firestore }
+export { auth, firestore };
