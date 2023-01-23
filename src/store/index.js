@@ -17,7 +17,7 @@ export const useStore = defineStore('store', {
       genres.forEach(async (value, key) => {
         let data = (await axios.get("https://api.themoviedb.org/3/discover/movie", {
           params: {
-            api_key: "Your Key",
+            api_key: "8ac2fee2e116a087001b0fb5443451e5",
             with_genres: key,
             include_adult: false,
           }
