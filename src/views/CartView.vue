@@ -23,11 +23,11 @@ const store = useStore();
   padding-top: 1em;
   padding-left: 1em;
   background: linear-gradient(360deg, rgba(15, 15, 15, 1) 0%, rgba(42, 42, 42, 1) 98%);
-  height: 50em;
+  height: 60em;
 }
 
 img {
-  width: 15em;
+  width: 10em;
   border-radius: 20px;
   box-shadow: 0 0 10px 0 black;
 }
