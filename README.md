@@ -4,10 +4,4 @@ a grade 12 project implemented with user authentication, data from TMDB's API, a
 
 
 tech stack:
-javascript
-HTML
-CSS
-Vue.js
-Firebase
-Axios
-TMDB API
+javascript, HTML, CSS, Vue.js, Firebase, Axios, TMDB API
